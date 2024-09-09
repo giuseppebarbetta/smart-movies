@@ -5,7 +5,7 @@ import api from '../../services/api'
 import * as C from './styles'
 
 function Home() {
-  const [movie, setMovie] = useState()
+  const [movie, setMovie] = useState(null)
 
   useEffect(() => {
     async function getMovies() {
@@ -14,6 +14,7 @@ function Home() {
       } = await api.get('/movie/popular')
 
       setMovie(results[0])
+      console.log(movie)
     }
 
     getMovies()
@@ -24,6 +25,7 @@ function Home() {
       {movie && (
         <C.Background
           img={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}
+          alt="capa do filme"
         >
           <C.Container>
             <C.Info>
