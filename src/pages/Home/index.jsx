@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 
+import Button from '../../components/Button'
 import api from '../../services/api'
 import * as C from './styles'
 
@@ -28,6 +29,10 @@ function Home() {
             <C.Info>
               <h1>{movie.title}</h1>
               <p>{movie.overview}</p>
+              <div>
+                <Button>Assista agora</Button>
+                <Button>Assista ao trailer</Button>
+              </div>
             </C.Info>
             <C.Poster>
               <img
