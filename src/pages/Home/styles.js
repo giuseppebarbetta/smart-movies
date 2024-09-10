@@ -54,5 +54,12 @@ export const Poster = styled.div`
   img {
     width: 400px;
     border-radius: 30px;
+    box-shadow: 0px 15px 18px -5px rgba(0, 0, 0, 0.8);
   }
+`
+
+export const ContainerButtons = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 17px;
 `

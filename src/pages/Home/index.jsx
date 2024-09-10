@@ -5,7 +5,7 @@ import api from '../../services/api'
 import * as C from './styles'
 
 function Home() {
-  const [movie, setMovie] = useState(null)
+  const [movie, setMovie] = useState()
 
   useEffect(() => {
     async function getMovies() {
@@ -14,7 +14,6 @@ function Home() {
       } = await api.get('/movie/popular')
 
       setMovie(results[0])
-      console.log(movie)
     }
 
     getMovies()
@@ -31,10 +30,10 @@ function Home() {
             <C.Info>
               <h1>{movie.title}</h1>
               <p>{movie.overview}</p>
-              <div>
-                <Button>Assista agora</Button>
-                <Button>Assista ao trailer</Button>
-              </div>
+              <C.ContainerButtons>
+                <Button model={1}>Assistir ao filme</Button>
+                <Button>Assistir ao trailer</Button>
+              </C.ContainerButtons>
             </C.Info>
             <C.Poster>
               <img
