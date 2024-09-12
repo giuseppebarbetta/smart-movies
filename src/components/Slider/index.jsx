@@ -1,5 +1,6 @@
 import { Swiper, SwiperSlide } from 'swiper/react'
 
+import Card from '../../Card'
 import { Container } from './styles'
 
 function Slider({ info, title }) {
@@ -7,7 +8,7 @@ function Slider({ info, title }) {
     <Container>
       <h2>{title}</h2>
       <Swiper
-        pagination={{ clickable: true }}
+        grabCursor
         spaceBetween={10}
         slidesPerView={'auto'}
         className="swiper"
@@ -15,7 +16,7 @@ function Slider({ info, title }) {
         {info &&
           info.map((item, index) => (
             <SwiperSlide key={index}>
-              <div>{item.original_title}</div>
+              <Card item={item} />
             </SwiperSlide>
           ))}
       </Swiper>
