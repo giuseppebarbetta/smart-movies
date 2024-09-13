@@ -1,11 +1,25 @@
+import { Link, useLocation } from 'react-router-dom'
+
 import Logo from '../../assets/logo.png'
-import { Img } from './style'
+import { Container, Img, Menu, Li } from './style'
 
 function Header() {
+  const { pathname } = useLocation()
   return (
-    <div>
+    <Container>
       <Img src={Logo} />
-    </div>
+      <Menu>
+        <Li isActive={pathname === '/'}>
+          <Link to="/">Início</Link>
+        </Li>
+        <Li isActive={pathname.includes('filmes')}>
+          <Link to="/filmes">Filmes</Link>
+        </Li>
+        <Li isActive={pathname.includes('series')}>
+          <Link to="/series">Séries</Link>
+        </Li>
+      </Menu>
+    </Container>
   )
 }
 
