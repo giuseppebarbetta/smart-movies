@@ -4,13 +4,17 @@ export const Container = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: transparent;
+  background-color: ${({ changeBackground }) =>
+    changeBackground ? '#EFEFEF' : 'transparent'};
 
   width: 100vw;
+  min-height: 80px;
   padding: 10px 35px;
-  z-index: 2;
+  z-index: 3;
   position: fixed;
   top: 0;
+
+  transition: background-color 0.5s ease-in-out;
 `
 
 export const Img = styled.img`
@@ -31,7 +35,8 @@ export const Li = styled.li`
 
   a {
     text-decoration: none;
-    color: #ffffff;
+    color: ${({ changeBackground }) =>
+      changeBackground ? '#000000' : '#EFEFEF'};
   }
 
   &::after {
