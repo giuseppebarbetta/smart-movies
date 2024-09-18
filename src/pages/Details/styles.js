@@ -44,10 +44,9 @@ export const Background = styled.div`
 export const Container = styled.div`
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   height: 100%;
 
-  max-width: 1500px;
   margin-top: -100px;
 `
 
@@ -63,5 +62,55 @@ export const Cover = styled.div`
     border-radius: 30px;
     box-shadow: rgb(100 100 111 / 20%) 0px 7px 29px 0px;
     animation: ${scale} 0.5s linear;
+  }
+`
+
+export const Info = styled.div`
+  padding: 20px;
+  width: 50%;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  h2 {
+    font-size: 44px;
+    font-weight: 700;
+    color: #efefef;
+  }
+
+  p {
+    font-weight: 700;
+    color: #efefef;
+    margin: 17px 0;
+    flex-wrap: wrap;
+  }
+`
+
+export const ContainerMovies = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  width: 100%;
+
+  div {
+    display: flex;
+    flex-direction: column;
+    max-width: 1000px;
+    width: 100%;
+    margin: 17px 0;
+  }
+
+  h4 {
+    color: #efefef;
+    font-size: 20px;
+    font-weight: 700;
+    margin: 8px 0;
+  }
+
+  iframe {
+    border: none;
   }
 `
