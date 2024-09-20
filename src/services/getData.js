@@ -16,14 +16,6 @@ export async function getTopMovies() {
   return results
 }
 
-export async function getTopSeries() {
-  const {
-    data: { results }
-  } = await api.get('/tv/popular')
-
-  return results
-}
-
 export async function getPopularSeries() {
   const {
     data: { results }

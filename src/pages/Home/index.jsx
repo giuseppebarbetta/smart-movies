@@ -8,8 +8,7 @@ import {
   getMovies,
   getPopularPerson,
   getPopularSeries,
-  getTopMovies,
-  getTopSeries
+  getTopMovies
 } from '../../services/getData'
 import { getImages } from '../../utils/getImages'
 import * as C from './styles'
@@ -17,7 +16,6 @@ import * as C from './styles'
 function Home() {
   const [movie, setMovie] = useState()
   const [topMovies, setTopMovies] = useState()
-  const [topSeries, setTopSeries] = useState()
   const [popularSeries, setPopularSeries] = useState()
   const [popularPerson, setPopularPerson] = useState()
   const [showModal, setShowModal] = useState(false)
@@ -28,15 +26,13 @@ function Home() {
       Promise.all([
         getMovies(),
         getTopMovies(),
-        getTopSeries(),
         getPopularSeries(),
         getPopularPerson()
       ])
-        .then(([movie, topMovie, topSeries, popularSeires, popularPerson]) => {
+        .then(([movie, topMovie, popularSeries, popularPerson]) => {
           setMovie(movie)
           setTopMovies(topMovie)
-          setTopSeries(topSeries)
-          setPopularSeries(popularSeires)
+          setPopularSeries(popularSeries)
           setPopularPerson(popularPerson)
         })
         .catch((err) => console.error(err))
@@ -75,7 +71,6 @@ function Home() {
         </C.Background>
       )}
       {topMovies && <Slider info={topMovies} title={'Top Filmes'} />}
-      {topSeries && <Slider info={topSeries} title={'Top Séries'} />}
       {popularSeries && (
         <Slider info={popularSeries} title={'Séries Populares'} />
       )}
